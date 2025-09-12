@@ -11,6 +11,7 @@ export enum Collections {
 	Mfas = "_mfas",
 	Otps = "_otps",
 	Superusers = "_superusers",
+	FilmLists = "filmLists",
 	Films = "films",
 	Users = "users",
 	WatchHistory = "watchHistory",
@@ -92,14 +93,24 @@ export type SuperusersRecord = {
 	verified?: boolean
 }
 
+export type FilmListsRecord = {
+	created?: IsoDateString
+	id: string
+	title?: string
+	updated?: IsoDateString
+}
+
 export type FilmsRecord = {
 	created?: IsoDateString
+	filmList?: RecordIdString
 	id: string
 	imdbScore?: number
 	poster?: string
+	releaseDate?: IsoDateString
 	runtime?: number
 	suggestedBy?: RecordIdString
-	title?: string
+	title: string
+	tmdbId: string
 	tmdbScore?: number
 	tomatoMeter?: number
 	updated?: IsoDateString
@@ -122,10 +133,10 @@ export type UsersRecord = {
 
 export type WatchHistoryRecord = {
 	created?: IsoDateString
-	film?: RecordIdString
+	film: RecordIdString
 	id: string
 	updated?: IsoDateString
-	user?: RecordIdString
+	user: RecordIdString
 	watchStatus?: string
 }
 
@@ -135,6 +146,7 @@ export type ExternalauthsResponse<Texpand = unknown> = Required<ExternalauthsRec
 export type MfasResponse<Texpand = unknown> = Required<MfasRecord> & BaseSystemFields<Texpand>
 export type OtpsResponse<Texpand = unknown> = Required<OtpsRecord> & BaseSystemFields<Texpand>
 export type SuperusersResponse<Texpand = unknown> = Required<SuperusersRecord> & AuthSystemFields<Texpand>
+export type FilmListsResponse<Texpand = unknown> = Required<FilmListsRecord> & BaseSystemFields<Texpand>
 export type FilmsResponse<Texpand = unknown> = Required<FilmsRecord> & BaseSystemFields<Texpand>
 export type UsersResponse<Texpand = unknown> = Required<UsersRecord> & AuthSystemFields<Texpand>
 export type WatchHistoryResponse<Texpand = unknown> = Required<WatchHistoryRecord> & BaseSystemFields<Texpand>
@@ -147,6 +159,7 @@ export type CollectionRecords = {
 	_mfas: MfasRecord
 	_otps: OtpsRecord
 	_superusers: SuperusersRecord
+	filmLists: FilmListsRecord
 	films: FilmsRecord
 	users: UsersRecord
 	watchHistory: WatchHistoryRecord
@@ -158,6 +171,7 @@ export type CollectionResponses = {
 	_mfas: MfasResponse
 	_otps: OtpsResponse
 	_superusers: SuperusersResponse
+	filmLists: FilmListsResponse
 	films: FilmsResponse
 	users: UsersResponse
 	watchHistory: WatchHistoryResponse
@@ -172,6 +186,7 @@ export type TypedPocketBase = PocketBase & {
 	collection(idOrName: '_mfas'): RecordService<MfasResponse>
 	collection(idOrName: '_otps'): RecordService<OtpsResponse>
 	collection(idOrName: '_superusers'): RecordService<SuperusersResponse>
+	collection(idOrName: 'filmLists'): RecordService<FilmListsResponse>
 	collection(idOrName: 'films'): RecordService<FilmsResponse>
 	collection(idOrName: 'users'): RecordService<UsersResponse>
 	collection(idOrName: 'watchHistory'): RecordService<WatchHistoryResponse>

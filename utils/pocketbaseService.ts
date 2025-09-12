@@ -6,11 +6,14 @@ import {
   UsersResponse,
   WatchHistoryResponse,
 } from "@/../utils/pocketbase-types"; // <-- adjust path to your typegen output
+import Constants from 'expo-constants';
 import PocketBase from "pocketbase";
+
+const POCKETBASE_URL = Constants.manifest?.extra?.POCKETBASE_URL ?? "https://movies.jkim.win";
 
 // Initialize PocketBase client
 const pb: TypedPocketBase = new PocketBase(
-  process.env.POCKETBASE_URL || "https://movies.jkim.win",
+  POCKETBASE_URL,
 ) as TypedPocketBase;
 
 

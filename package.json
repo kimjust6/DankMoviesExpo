@@ -12,6 +12,7 @@
     "typegen": "npx pocketbase-typegen --env -o @/../utils/pocketbase-types.ts"
   },
   "dependencies": {
+    "dotenv": "^17.2.2",
     "expo": "^54.0.2",
     "expo-constants": "~18.0.8",
     "expo-image": "~3.0.8",
