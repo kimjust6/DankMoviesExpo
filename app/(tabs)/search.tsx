@@ -1,11 +1,11 @@
 import "@/../global.css";
 
-import Constants from 'expo-constants';
-
-const TMDB_API_KEY = Constants.manifest?.extra?.TMDB_API_KEY;
 import { Movie, searchMovieByTitle } from "@/../utils/tmdbService";
+import Constants from 'expo-constants';
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
+
+const TMDB_API_KEY = Constants.manifest?.extra?.TMDB_API_KEY;
 
 export default function Index() {
   const [query, setQuery] = useState("");
@@ -18,8 +18,12 @@ async function performSearch(query: string) {
 }
   
 if (query.length > 2) {
-  // Perform search
-  performSearch(query);
+  // add debounce 
+  const debounceTimeout = setTimeout(() => {
+    performSearch(query);
+  }, 1000);
+
+  return () => clearTimeout(debounceTimeout);
 }
   
 }, [query]);
