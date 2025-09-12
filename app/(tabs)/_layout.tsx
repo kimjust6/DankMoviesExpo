@@ -23,13 +23,27 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="search"
         options={{
-          title: "About",
+          title: "Search",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? "search-sharp" : "search-outline"}
+              color={color}
+              size={24}
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={
-                focused ? "information-circle" : "information-circle-outline"
+                focused ? "person-circle" : "person-circle-outline"
               }
               color={color}
               size={24}
