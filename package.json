@@ -9,7 +9,7 @@
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "web": "expo start --web",
-    "typegen": "npx pocketbase-typegen --db ./pb_data/data.db"
+    "typegen": "npx pocketbase-typegen --env -o @/../utils/pocketbase-types.ts"
   },
   "dependencies": {
     "expo": "^54.0.2",
