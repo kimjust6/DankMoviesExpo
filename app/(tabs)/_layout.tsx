@@ -5,7 +5,9 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#ffd33d",
+        tabBarActiveTintColor: "#b892ff",
+        headerShown: false,
+        tabBarStyle: { backgroundColor: "#25292e", borderTopColor: "#25292e" },
       }}
     >
       <Tabs.Screen
@@ -41,9 +43,7 @@ export default function TabLayout() {
           title: "Profile",
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
-              name={
-                focused ? "person-circle" : "person-circle-outline"
-              }
+              name={focused ? "person-circle" : "person-circle-outline"}
               color={color}
               size={24}
             />

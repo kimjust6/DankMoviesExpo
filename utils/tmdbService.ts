@@ -1,4 +1,3 @@
-
 const EXPO_PUBLIC_TMDB_API_KEY = process.env?.EXPO_PUBLIC_TMDB_API_KEY ?? "";
 const EXPO_PUBLIC_TMDB_BASE = "https://api.themoviedb.org/3";
 
