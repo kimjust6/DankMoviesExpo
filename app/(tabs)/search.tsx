@@ -1,11 +1,9 @@
 import "@/../global.css";
 
 import { Movie, searchMovieByTitle } from "@/../utils/tmdbService";
-import Constants from 'expo-constants';
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
-const EXPO_PUBLIC_TMDB_API_KEY = process.env?.EXPO_PUBLIC_TMDB_API_KEY;
 
 export default function Index() {
   const [query, setQuery] = useState("");
