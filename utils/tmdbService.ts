@@ -1,8 +1,8 @@
 import Constants from 'expo-constants';
 
-const TMDB_API_KEY = Constants.manifest?.extra?.TMDB_API_KEY ?? "";
+const EXPO_PUBLIC_TMDB_API_KEY = Constants.manifest?.extra?.EXPO_PUBLIC_TMDB_API_KEY ?? "";
 
-const TMDB_BASE = "https://api.themoviedb.org/3";
+const EXPO_PUBLIC_TMDB_BASE = "https://api.themoviedb.org/3";
 
 // ----------------------
 // Types
@@ -60,8 +60,8 @@ async function tmdbFetch<T>(
   endpoint: string,
   params: Record<string, any> = {},
 ): Promise<T> {
-  const url = new URL(`${TMDB_BASE}${endpoint}`);
-  url.searchParams.set("api_key", TMDB_API_KEY);
+  const url = new URL(`${EXPO_PUBLIC_TMDB_BASE}${endpoint}`);
+  url.searchParams.set("api_key", EXPO_PUBLIC_TMDB_API_KEY);
 
   for (const [key, value] of Object.entries(params)) {
     if (value !== undefined && value !== null) {

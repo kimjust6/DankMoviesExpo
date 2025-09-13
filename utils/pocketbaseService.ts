@@ -9,11 +9,11 @@ import {
 import Constants from 'expo-constants';
 import PocketBase from "pocketbase";
 
-const POCKETBASE_URL = Constants.manifest?.extra?.POCKETBASE_URL ?? "https://movies.jkim.win";
+const EXPO_PUBLIC_POCKETBASE_URL = Constants.manifest?.extra?.EXPO_PUBLIC_POCKETBASE_URL ?? "https://movies.jkim.win";
 
 // Initialize PocketBase client
 const pb: TypedPocketBase = new PocketBase(
-  POCKETBASE_URL,
+  EXPO_PUBLIC_POCKETBASE_URL,
 ) as TypedPocketBase;
 
 

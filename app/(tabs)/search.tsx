@@ -5,7 +5,7 @@ import Constants from 'expo-constants';
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
-const TMDB_API_KEY = Constants.manifest?.extra?.TMDB_API_KEY;
+const EXPO_PUBLIC_TMDB_API_KEY = process.env?.EXPO_PUBLIC_TMDB_API_KEY;
 
 export default function Index() {
   const [query, setQuery] = useState("");
@@ -40,7 +40,6 @@ if (query.length > 2) {
         onChangeText={setQuery}
       />
       <Text style={styles.text}>{JSON.stringify(results)}</Text>
-      <Text style={styles.text}>{JSON.stringify(TMDB_API_KEY)}</Text>
     </View>
   );
 }
