@@ -11,9 +11,10 @@ export const STYLES = {
   title: `text-xl font-bold`,
   input: `w-4/5 h-10 border border-[#555] rounded-lg px-2 text-white bg-[#333]`,
   text: `text-white mb-3 text-xl`,
-  container2: `flex-1 bg-[#25292e] items-center p-4`
+  container2: `flex-1 bg-[#25292e] items-center p-4`,
 };
 
 export const URLS = {
-  TMDB_POSTER: "https://image.tmdb.org/t/p/original/"
-}
+  TMDB_POSTER_BASE_500: "https://image.tmdb.org/t/p/w500/",
+  TMDB_POSTER_BASE_ORIGINAL: "https://image.tmdb.org/t/p/original/",
+};

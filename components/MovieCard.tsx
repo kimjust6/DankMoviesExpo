@@ -1,9 +1,6 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { URLS } from "@/../utils/constants";
 import { Movie } from "@/../utils/tmdb-types";
-// This component expects NativeWind (or another Tailwind solution for React Native) to be set up.
-// Usage example:
-// <MovieCard movie={movie} onPress={() => console.log(movie.id)} />
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 export default function MovieCard({
   movie,
@@ -12,9 +9,9 @@ export default function MovieCard({
   movie: Movie;
   onPress?: () => void;
 }) {
-  const posterBase = "https://image.tmdb.org/t/p/w500";
-  const poster = movie.poster_path ? `${posterBase}${movie.poster_path}` : null;
-
+  const poster = movie.poster_path
+    ? `${URLS.TMDB_POSTER_BASE_500}${movie.poster_path}`
+    : null;
   const releaseYear = movie.release_date
     ? new Date(movie.release_date).getFullYear()
     : "";
@@ -34,7 +31,7 @@ export default function MovieCard({
       className="m-3 flex-row overflow-hidden rounded-2xl bg-white shadow-md dark:bg-gray-900"
     >
       {/* Poster */}
-      <View className="h-40 w-28">
+      <View className="h-52 w-36">
         {poster ? (
           <Image
             source={{ uri: poster }}
@@ -86,7 +83,6 @@ export default function MovieCard({
             {shortOverview}
           </Text>
         </View>
-
         <View className="mt-3 flex-row items-center justify-between">
           {/* <Text className="text-xs text-gray-500">
             Popularity: {Math.round(movie.popularity)}

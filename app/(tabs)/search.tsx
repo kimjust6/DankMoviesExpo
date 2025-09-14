@@ -1,10 +1,10 @@
 import "@/../global.css";
 import { STYLES } from "@/../utils/constants";
+import { Movie } from "@/../utils/tmdb-types";
 import { searchMovieByTitle } from "@/../utils/tmdbService";
+import MovieCard from "components/MovieCard";
 import { useEffect, useState } from "react";
 import { ScrollView, Text, TextInput, View } from "react-native";
-import { Movie } from "@/../utils/tmdb-types";
-import MovieCard from "components/MovieCard";
 
 export default function Index() {
   const [query, setQuery] = useState("");
