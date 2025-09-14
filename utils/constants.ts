@@ -1,4 +1,4 @@
-export const styles = {
+export const STYLES = {
   codeHighlightContainer: `rounded-md px-1`,
   getStartedContainer: `items-center mx-12`,
   getStartedText: `text-lg leading-6 text-center`,
@@ -11,5 +11,9 @@ export const styles = {
   title: `text-xl font-bold`,
   input: `w-4/5 h-10 border border-[#555] rounded-lg px-2 text-white bg-[#333]`,
   text: `text-white mb-3 text-xl`,
-  container2: `flex-1 bg-[#25292e] items-center justify-center p-4`
+  container2: `flex-1 bg-[#25292e] items-center p-4`
 };
+
+export const URLS = {
+  TMDB_POSTER: "https://image.tmdb.org/t/p/original/"
+}

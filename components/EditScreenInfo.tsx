@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import { styles } from "@/../utils/constants";
+import { STYLES } from "@/../utils/constants";
 
 
 
@@ -10,14 +10,14 @@ export const EditScreenInfo = ({ path }: { path: string }) => {
 
   return (
     <View>
-      <View className={styles.getStartedContainer}>
-        <Text className={styles.getStartedText}>{title}</Text>
+      <View className={STYLES.getStartedContainer}>
+        <Text className={STYLES.getStartedText}>{title}</Text>
         <View
-          className={styles.codeHighlightContainer + styles.homeScreenFilename}
+          className={STYLES.codeHighlightContainer + STYLES.homeScreenFilename}
         >
           <Text>{path}</Text>
         </View>
-        <Text className={styles.getStartedText}>{description}</Text>
+        <Text className={STYLES.getStartedText}>{description}</Text>
       </View>
     </View>
   );

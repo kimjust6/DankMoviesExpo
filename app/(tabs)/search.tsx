@@ -1,8 +1,10 @@
 import "@/../global.css";
-import { styles } from "@/../utils/constants";
-import { Movie, searchMovieByTitle } from "@/../utils/tmdbService";
+import { STYLES } from "@/../utils/constants";
+import { searchMovieByTitle } from "@/../utils/tmdbService";
 import { useEffect, useState } from "react";
 import { Text, TextInput, View } from "react-native";
+import { Movie } from "@/../utils/tmdb-types";
+import MovieCard from "components/MovieCard";
 
 export default function Index() {
   const [query, setQuery] = useState("");
@@ -11,6 +13,7 @@ export default function Index() {
     async function performSearch(query: string) {
       const result = await searchMovieByTitle(query);
       setResults(result);
+      console.log(result);
     }
 
     if (query.length > 2) {
@@ -24,18 +27,18 @@ export default function Index() {
   }, [query]);
 
   return (
-    <View className={`${styles.container2} bg-orange-200`}>
-      <Text className={styles.text}>Find Movie</Text>
+    <View className={`${STYLES.container2} bg-slate-800`}>
+      <Text className={`${STYLES.text} mt-24 text-white`}>Find Movie</Text>
       <TextInput
-        className={styles.input}
+        className={STYLES.input}
         placeholder="Search..."
         placeholderTextColor="#aaa"
         value={query}
         onChangeText={setQuery}
       />
-      <Text className={styles.text}>{JSON.stringify(results)}</Text>
+      {results.map((movie) => (
+        <MovieCard key={movie.id} movie={movie} />
+      ))}
     </View>
   );
 }
-
-
