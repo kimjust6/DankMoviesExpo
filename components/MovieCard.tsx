@@ -5,13 +5,13 @@ import { Movie } from "@/../utils/tmdb-types";
 // Usage example:
 // <MovieCard movie={movie} onPress={() => console.log(movie.id)} />
 
-
-export default function MovieCard({ movie, onPress = () => {} } : {
+export default function MovieCard({
+  movie,
+  onPress = () => {},
+}: {
   movie: Movie;
   onPress?: () => void;
 }) {
-
-
   const posterBase = "https://image.tmdb.org/t/p/w500";
   const poster = movie.poster_path ? `${posterBase}${movie.poster_path}` : null;
 
@@ -88,9 +88,9 @@ export default function MovieCard({ movie, onPress = () => {} } : {
         </View>
 
         <View className="mt-3 flex-row items-center justify-between">
-          <Text className="text-xs text-gray-500">
+          {/* <Text className="text-xs text-gray-500">
             Popularity: {Math.round(movie.popularity)}
-          </Text>
+          </Text> */}
           <Text className="text-xs text-blue-600 dark:text-blue-400">
             Released: {movie.release_date}
           </Text>

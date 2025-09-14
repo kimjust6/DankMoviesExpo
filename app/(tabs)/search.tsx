@@ -2,7 +2,7 @@ import "@/../global.css";
 import { STYLES } from "@/../utils/constants";
 import { searchMovieByTitle } from "@/../utils/tmdbService";
 import { useEffect, useState } from "react";
-import { Text, TextInput, View } from "react-native";
+import { ScrollView, Text, TextInput, View } from "react-native";
 import { Movie } from "@/../utils/tmdb-types";
 import MovieCard from "components/MovieCard";
 
@@ -13,7 +13,6 @@ export default function Index() {
     async function performSearch(query: string) {
       const result = await searchMovieByTitle(query);
       setResults(result);
-      console.log(result);
     }
 
     if (query.length > 2) {
@@ -36,9 +35,11 @@ export default function Index() {
         value={query}
         onChangeText={setQuery}
       />
-      {results.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
+      <ScrollView className="w-screen">
+        {results.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </ScrollView>
     </View>
   );
 }
